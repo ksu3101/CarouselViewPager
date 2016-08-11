@@ -58,15 +58,4 @@ public class BaseCardItem
     this.tag = in.readString();
   }
 
-  public static final Parcelable.Creator<BaseCardItem> CREATOR = new Parcelable.Creator<BaseCardItem>() {
-    @Override
-    public BaseCardItem createFromParcel(Parcel source) {
-      return new BaseCardItem(source);
-    }
-
-    @Override
-    public BaseCardItem[] newArray(int size) {
-      return new BaseCardItem[size];
-    }
-  };
 }

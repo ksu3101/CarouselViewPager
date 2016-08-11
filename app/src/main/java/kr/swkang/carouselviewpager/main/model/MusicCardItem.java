@@ -10,32 +10,50 @@ import kr.swkang.carouselviewpager.utils.mvp.model.BaseCardItem;
  */
 public class MusicCardItem
     extends BaseCardItem {
-  private String thumbNailImgUrl;
-  private String imgRGB;
-  private String title;
-  private String category;
-  private String desc;
-  private int    likeCount;
-  private int    replyCount;
+  private String  artistImgUrl;
+  private String  coverImgUrl;
+  private String  coverImgRGB;
+  private String  cachedCoverImgPath;
+  private String  title;
+  private String  category;
+  private String  artist;
+  private String  albumName;
+  private boolean isLike;
 
   public MusicCardItem(int id) {
     super(id);
   }
 
-  public String getThumbNailImgUrl() {
-    return thumbNailImgUrl;
+  public String getArtistImgUrl() {
+    return artistImgUrl;
   }
 
-  public void setThumbNailImgUrl(String thumbNailImgUrl) {
-    this.thumbNailImgUrl = thumbNailImgUrl;
+  public void setArtistImgUrl(String artistImgUrl) {
+    this.artistImgUrl = artistImgUrl;
   }
 
-  public String getImgRGB() {
-    return imgRGB;
+  public void setCachedCoverImgPath(String cachedCoverImgPath) {
+    this.cachedCoverImgPath = cachedCoverImgPath;
   }
 
-  public void setImgRGB(String imgRGB) {
-    this.imgRGB = imgRGB;
+  public String getCachedCoverImgPath() {
+    return cachedCoverImgPath;
+  }
+
+  public String getCoverImgUrl() {
+    return coverImgUrl;
+  }
+
+  public void setCoverImgUrl(String coverImgUrl) {
+    this.coverImgUrl = coverImgUrl;
+  }
+
+  public String getCoverImgRGB() {
+    return coverImgRGB;
+  }
+
+  public void setCoverImgRGB(String coverImgRGB) {
+    this.coverImgRGB = coverImgRGB;
   }
 
   public String getTitle() {
@@ -54,28 +72,28 @@ public class MusicCardItem
     this.category = category;
   }
 
-  public String getDesc() {
-    return desc;
+  public String getArtist() {
+    return artist;
   }
 
-  public void setDesc(String desc) {
-    this.desc = desc;
+  public void setArtist(String artist) {
+    this.artist = artist;
   }
 
-  public int getLikeCount() {
-    return likeCount;
+  public String getAlbumName() {
+    return albumName;
   }
 
-  public void setLikeCount(int likeCount) {
-    this.likeCount = likeCount;
+  public void setAlbumName(String albumName) {
+    this.albumName = albumName;
   }
 
-  public int getReplyCount() {
-    return replyCount;
+  public boolean isLike() {
+    return isLike;
   }
 
-  public void setReplyCount(int replyCount) {
-    this.replyCount = replyCount;
+  public void setLike(boolean like) {
+    isLike = like;
   }
 
   @Override
@@ -86,24 +104,28 @@ public class MusicCardItem
   @Override
   public void writeToParcel(Parcel dest, int flags) {
     super.writeToParcel(dest, flags);
-    dest.writeString(this.thumbNailImgUrl);
-    dest.writeString(this.imgRGB);
+    dest.writeString(this.cachedCoverImgPath);
+    dest.writeString(this.artistImgUrl);
+    dest.writeString(this.coverImgUrl);
+    dest.writeString(this.coverImgRGB);
     dest.writeString(this.title);
     dest.writeString(this.category);
-    dest.writeString(this.desc);
-    dest.writeInt(this.likeCount);
-    dest.writeInt(this.replyCount);
+    dest.writeString(this.artist);
+    dest.writeString(this.albumName);
+    dest.writeByte(this.isLike ? (byte) 1 : (byte) 0);
   }
 
   protected MusicCardItem(Parcel in) {
     super(in);
-    this.thumbNailImgUrl = in.readString();
-    this.imgRGB = in.readString();
+    this.cachedCoverImgPath = in.readString();
+    this.artistImgUrl = in.readString();
+    this.coverImgUrl = in.readString();
+    this.coverImgRGB = in.readString();
     this.title = in.readString();
     this.category = in.readString();
-    this.desc = in.readString();
-    this.likeCount = in.readInt();
-    this.replyCount = in.readInt();
+    this.artist = in.readString();
+    this.albumName = in.readString();
+    this.isLike = in.readByte() != 0;
   }
 
   public static final Creator<MusicCardItem> CREATOR = new Creator<MusicCardItem>() {
