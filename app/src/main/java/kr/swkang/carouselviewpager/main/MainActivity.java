@@ -13,6 +13,7 @@ import java.util.List;
 
 import kr.swkang.carouselviewpager.R;
 import kr.swkang.carouselviewpager.main.model.MusicCardItem;
+import kr.swkang.carouselviewpager.main.sub.CardFragment;
 
 public class MainActivity
     extends AppCompatActivity {
@@ -27,7 +28,7 @@ public class MainActivity
 
     viewPager = (ViewPager) findViewById(R.id.main_ViewPager);
 
-    ArrayList<MusicCardItem> list = new ArrayList<MusicCardItem>();
+    ArrayList<MusicCardItem> list = new ArrayList<>();
 
     adapter = new CarouselViewPagerAdapter(getSupportFragmentManager(), list);
 
@@ -44,11 +45,14 @@ public class MainActivity
 
     @Override
     public Fragment getItem(int position) {
-      return null;
+      Bundle args = new Bundle();
+      args.putParcelable(CardFragment.BUNDLE_KEY_ITEM, list.get(position));
+      return CardFragment.newInstance(args);
     }
 
     @Override
     public int getCount() {
+      if (list != null) return list.size();
       return 0;
     }
   }
