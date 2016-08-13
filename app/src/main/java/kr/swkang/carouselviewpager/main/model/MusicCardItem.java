@@ -139,4 +139,5 @@ public class MusicCardItem
       return new MusicCardItem[size];
     }
   };
+
 }
