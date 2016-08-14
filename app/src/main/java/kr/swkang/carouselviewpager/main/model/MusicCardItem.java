@@ -112,7 +112,7 @@ public class MusicCardItem
     dest.writeString(this.category);
     dest.writeString(this.artist);
     dest.writeString(this.albumName);
-    dest.writeByte(this.isLike ? (byte) 1 : (byte) 0);
+    dest.writeInt(this.isLike ? 1 : 0);
   }
 
   protected MusicCardItem(Parcel in) {
@@ -125,7 +125,7 @@ public class MusicCardItem
     this.category = in.readString();
     this.artist = in.readString();
     this.albumName = in.readString();
-    this.isLike = in.readByte() != 0;
+    this.isLike = (in.readInt() == 1);
   }
 
   public static final Creator<MusicCardItem> CREATOR = new Creator<MusicCardItem>() {
