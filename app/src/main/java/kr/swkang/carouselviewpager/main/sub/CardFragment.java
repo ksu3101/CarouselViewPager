@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import kr.swkang.carouselviewpager.R;
-import kr.swkang.carouselviewpager.main.model.MusicCardItem;
+import kr.swkang.carouselviewpager.main.model.UserCardItem;
 import kr.swkang.carouselviewpager.utils.BaseFragment;
 import kr.swkang.carouselviewpager.utils.mvp.BasePresenter;
 
@@ -48,7 +48,7 @@ public class CardFragment
   }
 
   @Override
-  public void retrieveMusicList(boolean isRefresh, List<MusicCardItem> resultList) {
+  public void retrieveMusicList(boolean isRefresh, List<UserCardItem> resultList) {
     
   }
 
