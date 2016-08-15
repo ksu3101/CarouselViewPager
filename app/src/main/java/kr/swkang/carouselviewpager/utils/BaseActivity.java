@@ -53,14 +53,7 @@ public abstract class BaseActivity
       // unscribe registered Subscriptions
       basePresenter.destroy();
     }
-    if (decorView != null && globalLayoutListener != null) {
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-        decorView.getViewTreeObserver().removeOnGlobalLayoutListener(globalLayoutListener);
-      }
-      else {
-        decorView.getViewTreeObserver().removeGlobalOnLayoutListener(globalLayoutListener);
-      }
-    }
+    removeLayoutListener();
     super.onDestroy();
   }
 
@@ -74,7 +67,20 @@ public abstract class BaseActivity
 
   // - - Common methods - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+  private void removeLayoutListener() {
+    if (decorView != null && globalLayoutListener != null) {
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+        decorView.getViewTreeObserver().removeOnGlobalLayoutListener(globalLayoutListener);
+      }
+      else {
+        decorView.getViewTreeObserver().removeGlobalOnLayoutListener(globalLayoutListener);
+      }
+    }
+  }
+
   public void checkSoftKeyboardOnActivity() {
+    removeLayoutListener();
+    
     decorView = getWindow().getDecorView();
     globalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() {
       private final Rect windowVisibleDisplayFrame = new Rect();
