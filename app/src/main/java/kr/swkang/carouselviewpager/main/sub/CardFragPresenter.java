@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 
 import java.util.List;
 
-import kr.swkang.carouselviewpager.main.model.MusicCardItem;
+import kr.swkang.carouselviewpager.main.model.UserCardItem;
 import kr.swkang.carouselviewpager.utils.mvp.BasePresenter;
 import kr.swkang.carouselviewpager.utils.mvp.BaseView;
 
@@ -32,7 +32,7 @@ public class CardFragPresenter
 
   public interface View
       extends BaseView {
-    void retrieveMusicList(boolean isRefresh, List<MusicCardItem> resultList);
+    void retrieveMusicList(boolean isRefresh, List<UserCardItem> resultList);
 
     void onLikeJobCompleted(boolean isLiked);
   }

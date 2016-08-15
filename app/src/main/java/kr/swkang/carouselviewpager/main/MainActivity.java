@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.swkang.carouselviewpager.R;
-import kr.swkang.carouselviewpager.main.model.MusicCardItem;
+import kr.swkang.carouselviewpager.main.model.UserCardItem;
 import kr.swkang.carouselviewpager.main.sub.CardFragment;
 
 public class MainActivity
@@ -28,7 +28,7 @@ public class MainActivity
 
     viewPager = (ViewPager) findViewById(R.id.main_ViewPager);
 
-    ArrayList<MusicCardItem> list = new ArrayList<>();
+    ArrayList<UserCardItem> list = new ArrayList<>();
 
     adapter = new CarouselViewPagerAdapter(getSupportFragmentManager(), list);
 
@@ -36,9 +36,9 @@ public class MainActivity
 
   private class CarouselViewPagerAdapter
       extends FragmentStatePagerAdapter {
-    private List<MusicCardItem> list;
+    private List<UserCardItem> list;
 
-    public CarouselViewPagerAdapter(@NonNull FragmentManager fm, @NonNull List<MusicCardItem> list) {
+    public CarouselViewPagerAdapter(@NonNull FragmentManager fm, @NonNull List<UserCardItem> list) {
       super(fm);
       this.list = list;
     }
