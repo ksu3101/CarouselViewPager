@@ -10,7 +10,7 @@ import rx.subscriptions.CompositeSubscription;
  * @author KangSung-Woo
  * @since 2016/07/07
  */
-public class BasePresenter<T> {
+public class BasePresenter {
   private CompositeSubscription compositeSubscription;
 
   public BasePresenter() {

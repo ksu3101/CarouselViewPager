@@ -47,13 +47,4 @@ public class CardFragment
     return rootView;
   }
 
-  @Override
-  public void retrieveMusicList(boolean isRefresh, List<UserCardItem> resultList) {
-    
-  }
-
-  @Override
-  public void onLikeJobCompleted(boolean isLiked) {
-
-  }
 }
