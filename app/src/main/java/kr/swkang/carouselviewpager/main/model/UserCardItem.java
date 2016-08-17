@@ -20,6 +20,17 @@ public class UserCardItem
 
   public UserCardItem(int id) {
     super(id);
+    init();
+  }
+
+  private void init() {
+    this.coverImgUrl = "";
+    this.coverImgRGB = "";
+    this.cachedCoverImgPath = "";
+    this.profileImgUrl = "";
+    this.userName = "";
+    this.userTitle = "";
+    this.isFollowing = false;
   }
 
   public String getCoverImgUrl() {

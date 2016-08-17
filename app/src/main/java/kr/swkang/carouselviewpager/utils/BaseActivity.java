@@ -1,6 +1,5 @@
 package kr.swkang.carouselviewpager.utils;
 
-import android.app.Activity;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
@@ -78,6 +77,11 @@ public abstract class BaseActivity
     }
   }
 
+  /**
+   * SoftKeyboard가 보이는 경우 `onKeyboardShown()`메소드가 호출 된다.
+   * 보이지 않는 경우나 가려진 경우에는 `onKeyboardHidden()`메소드가 호출 되어 진다.
+   * 필요에 따라서 두 메소드를 재정의 하고 `checkSoftKeyboardOnActivity()`메소드를 호출 하면 된다.
+   */
   public void checkSoftKeyboardOnActivity() {
     removeLayoutListener();
     
