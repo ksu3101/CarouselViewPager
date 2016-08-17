@@ -1,6 +1,7 @@
 package kr.swkang.carouselviewpager.main.model;
 
 import android.os.Parcel;
+import android.support.annotation.NonNull;
 
 import kr.swkang.carouselviewpager.utils.mvp.model.BaseCardItem;
 
@@ -21,6 +22,13 @@ public class UserCardItem
   public UserCardItem(int id) {
     super(id);
     init();
+  }
+
+  // FOR TEST
+  public UserCardItem(int id, @NonNull String imgRGB) {
+    super(id);
+    init();
+    this.coverImgRGB = imgRGB;
   }
 
   private void init() {

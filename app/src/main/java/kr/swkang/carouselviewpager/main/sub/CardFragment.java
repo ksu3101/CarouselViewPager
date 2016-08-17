@@ -1,10 +1,15 @@
 package kr.swkang.carouselviewpager.main.sub;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -43,7 +48,22 @@ public class CardFragment
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
     rootView = inflater.inflate(R.layout.main_f_card, container, false);
 
+    final Bundle args = getArguments();
+    if (args != null) {
+      final UserCardItem cardItem = args.getParcelable(BUNDLE_KEY_ITEM);
+      if (cardItem != null) {
 
+        if (!TextUtils.isEmpty(cardItem.getCoverImgRGB())) {
+          Log.d("CardFragment", "// RGB = " + cardItem.getCoverImgRGB());
+          LinearLayout containerLayout = (LinearLayout) rootView.findViewById(R.id.main_f_card_container);
+          containerLayout.setBackgroundColor(Color.parseColor(cardItem.getCoverImgRGB()));
+        }
+
+        TextView tvTitle = (TextView) rootView.findViewById(R.id.main_f_card_tv);
+        tvTitle.setText(String.valueOf(cardItem.getId()));
+
+      }
+    }
     return rootView;
   }
 
